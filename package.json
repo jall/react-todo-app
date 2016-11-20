@@ -1,0 +1,19 @@
+{
+  "name": "react-typescript-webpack",
+  "version": "0.1.0",
+  "description": "Example app to test setting up React, Typescript, and Webpack",
+  "main": "index.js",
+  "author": "Jon Hall",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^0.14.49",
+    "@types/react-dom": "^0.14.18",
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
+    "typescript": "^2.0.10"
+  },
+  "devDependencies": {
+    "source-map-loader": "^0.1.5",
+    "ts-loader": "^1.2.2"
+  }
+}
