@@ -1,10 +1,13 @@
 import * as React from "react";
-import Hello from "./Components/Hello"
+import Todos from "./Components/Todos";
 
 export default class App extends React.Component<any, any> {
     render() {
         return (
-            <Hello name="Jon" />
+            <div className="wrapper">
+                <h1>Todos</h1>
+                <Todos />
+            </div>
         )
     }
 }

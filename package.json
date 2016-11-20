@@ -2,7 +2,7 @@
   "name": "react-typescript-webpack",
   "version": "0.1.0",
   "description": "Example app to test setting up React, Typescript, and Webpack",
-  "main": "index.js",
+  "main": "index.html",
   "author": "Jon Hall",
   "license": "MIT",
   "dependencies": {
