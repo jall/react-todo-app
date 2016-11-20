@@ -36,8 +36,10 @@ export default class Todos extends React.Component<any, TodosState> {
     }
 
     addTodo(text: string) {
-        let todos = this.state.todos;
-        todos.push(new Todo(generateUniqueId(), text));
-        this.setState({ todos: todos });
+        this.setState((prevState, props) => {
+            let todos = this.state.todos.slice();
+            todos.push(new Todo(generateUniqueId(), text));
+            return { todos: todos };
+        });
     }
 }
