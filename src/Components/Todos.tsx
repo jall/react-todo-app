@@ -4,24 +4,40 @@ import AddItem from "./AddItem";
 import List from "./List";
 import Summary from "./Summary";
 import Todo from "../Model/Todo";
+import generateUniqueId from "../Utilities/UniqueId";
 
-export default class Todos extends React.Component<any, any> {
+export interface TodosState {
+    todos: Todo[]
+}
+
+export default class Todos extends React.Component<any, TodosState> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            todos: [
+                new Todo(generateUniqueId(), 'Buy milk'),
+                new Todo(generateUniqueId(), 'Pay water bill'),
+                new Todo(generateUniqueId(), 'Defeat Metroman'),
+                new Todo(generateUniqueId(), 'Take over the world')
+            ]
+        };
+
+        this.addTodo = this.addTodo.bind(this);
+    }
+
     render() {
         return (
             <div className="todos">
-                <AddItem />
-                <List todos={this.getTodos()}/>
-                <Summary count={this.getTodos().length}/>
+                <AddItem addTodo={this.addTodo}/>
+                <List todos={this.state.todos}/>
+                <Summary count={this.state.todos.length}/>
             </div>
         );
     }
 
-    getTodos() {
-        return [
-            new Todo(1, 'Buy milk'),
-            new Todo(2, 'Pay water bill'),
-            new Todo(3, 'Defeat Metroman'),
-            new Todo(4, 'Take over the world')
-        ];
+    addTodo(text: string) {
+        let todos = this.state.todos;
+        todos.push(new Todo(generateUniqueId(), text));
+        this.setState({ todos: todos });
     }
 }
