@@ -6,20 +6,28 @@ May extended it to try using some LocalStorage & WebSocket functionality later o
 
 ## Installation
 
-Install [Webpack](http://webpack.github.io/docs/installation.html) and [Webpack dev server] as global dependencies on your system.
+Install [Webpack](http://webpack.github.io/docs/installation.html) and [Webpack dev server](http://webpack.github.io/docs/webpack-dev-server.html) as global dependencies on your system.
 
 ```shell
-yarn global install webpack webpack-dev-server
+yarn global add webpack webpack-dev-server
 ```
 
-Then you can run the dev server with
+Install the local dependencies with:
+
+```shell
+yarn
+```
+
+Then you can run the dev server with:
 
 ```shell
 webpack-dev-server
 ```
 
-or run a one off build with
+or run a one off build with:
 
 ```shell
 webpack
 ```
+
+The app can be loaded by opening the index.html file in the root of the repository.
