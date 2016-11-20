@@ -8,6 +8,6 @@ export interface ListItemProps {
 
 export default class ListItem extends React.Component<ListItemProps, any> {
     render() {
-        return <p>{this.props.todo.text}</p>;
+        return <li><p>{this.props.todo.text}</p></li>;
     }
 }

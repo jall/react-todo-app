@@ -9,14 +9,14 @@ export interface ListProps {
 
 export default class List extends React.Component<ListProps, any> {
     render() {
+        const items = this.props.todos.map((todo) =>
+            <ListItem todo={todo} key={todo.id.toString()} />
+        );
+
         return (
             <ul className="todo-list">
-                {this.getListItems()}
+                {items}
             </ul>
         );
-    }
-
-    getListItems() {
-        return this.props.todos.map((todo) => <li key={todo.text}><ListItem todo={todo}/></li>)
     }
 }
