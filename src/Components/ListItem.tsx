@@ -9,6 +9,13 @@ export interface ListItemProps {
 
 export default class ListItem extends React.Component<ListItemProps, any> {
     render() {
-        return <li><p>{this.props.todo.text}<span className="remove-todo" onClick={() => this.props.removeTodo(this.props.todo)}>&times;</span></p></li>;
+        return (
+            <li>
+                <p>
+                    <span className="todo-text">{this.props.todo.text}</span>
+                    <span className="remove-todo" onClick={() => this.props.removeTodo(this.props.todo)}>&times;</span>
+                </p>
+            </li>
+        );
     }
 }
