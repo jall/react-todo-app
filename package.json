@@ -13,7 +13,9 @@
     "typescript": "^2.0.10"
   },
   "devDependencies": {
+    "css-loader": "^0.26.0",
     "source-map-loader": "^0.1.5",
+    "style-loader": "^0.13.1",
     "ts-loader": "^1.2.2"
   }
 }
