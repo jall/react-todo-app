@@ -38,7 +38,7 @@ export default class Todos extends React.Component<any, TodosState> {
 
     addTodo(text: string) {
         this.setState((prevState, props) => {
-            let todos = this.state.todos.slice();
+            let todos = prevState.todos.slice();
             todos.push(new Todo(generateUniqueId(), text));
             return { todos: todos };
         });
@@ -46,7 +46,7 @@ export default class Todos extends React.Component<any, TodosState> {
 
     removeTodo(todo: Todo) {
         this.setState((prevState, props) => {
-            let todos = this.state.todos.slice();
+            let todos = prevState.todos.slice();
             let index = todos.indexOf(todo);
             if (index > -1) {
                 todos.splice(index, 1);
