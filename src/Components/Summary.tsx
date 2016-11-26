@@ -12,7 +12,7 @@ export default class Summary extends React.Component<SummaryProps, any> {
 
         return (
             <span className="todo-count">
-                <strong>{count}</strong> {count > 1 ? 'items' : 'item'} left
+                <strong>{count}</strong> {count === 1 ? 'item' : 'items'} left
             </span>
         );
     }
