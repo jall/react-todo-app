@@ -9,6 +9,11 @@ export interface ListItemProps {
 }
 
 export default class ListItem extends React.Component<ListItemProps, any> {
+    constructor(props: ListItemProps) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
     render() {
         let inputName: string = `complete-todo-${this.props.todo.id}`;
 
