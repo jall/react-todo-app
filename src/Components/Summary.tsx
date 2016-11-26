@@ -8,9 +8,11 @@ export interface SummaryProps {
 
 export default class Summary extends React.Component<SummaryProps, any> {
     render() {
+        let count = this.countIncompleteTodos();
+
         return (
             <span className="todo-count">
-                <strong>{this.countIncompleteTodos()}</strong> items left
+                <strong>{count}</strong> {count > 1 ? 'items' : 'item'} left
             </span>
         );
     }
