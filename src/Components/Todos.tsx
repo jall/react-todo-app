@@ -25,6 +25,7 @@ export default class Todos extends React.Component<any, TodosState> {
         this.addTodo = this.addTodo.bind(this);
         this.updateTodo = this.updateTodo.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
+        this.handleCompleteAllChange = this.handleCompleteAllChange.bind(this);
     }
 
     render() {
@@ -35,6 +36,8 @@ export default class Todos extends React.Component<any, TodosState> {
                     <AddItem addTodo={this.addTodo}/>
                 </header>
                 <section className="main">
+                    <input className="toggle-all" type="checkbox" onChange={this.handleCompleteAllChange}/>
+    				<label htmlFor="toggle-all">Mark all as complete</label>
                     <List todos={this.state.todos} updateTodo={this.updateTodo} removeTodo={this.removeTodo} />
                 </section>
                 <footer className="footer">
@@ -74,5 +77,14 @@ export default class Todos extends React.Component<any, TodosState> {
 
             return { todos: todos };
         });
+    }
+
+    handleCompleteAllChange(event: React.FormEvent<any>) {
+        let isComplete = (event.target as HTMLInputElement).checked;
+        let todos = this.state.todos.map((todo: Todo) => {
+            todo.complete = isComplete;
+            return todo;
+        });
+        this.setState({ todos: todos });
     }
 }

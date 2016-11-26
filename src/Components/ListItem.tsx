@@ -20,7 +20,7 @@ export default class ListItem extends React.Component<ListItemProps, any> {
         return (
             <li className={this.props.todo.complete ? 'completed' : ''}>
                 <div className="view">
-                    <input defaultChecked={this.props.todo.complete} onChange={this.handleChange} type="checkbox" name={inputName} className="toggle" />
+                    <input checked={this.props.todo.complete} onChange={this.handleChange} type="checkbox" name={inputName} className="toggle" />
                     <label htmlFor={inputName}>{this.props.todo.text}</label>
                     <button className="destroy" onClick={() => this.props.removeTodo(this.props.todo)}></button>
                 </div>
