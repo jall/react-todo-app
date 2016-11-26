@@ -1,12 +1,11 @@
 import * as React from "react";
 
 export default class Todo {
-    public complete: boolean;
-
     constructor(
         public id: number,
         public text: string,
+        public complete: boolean = false
     ) {
-        this.complete = false;
+
     }
 }
