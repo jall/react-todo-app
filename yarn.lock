@@ -847,6 +847,10 @@ tapable@^0.1.8:
   version "0.1.10"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-0.1.10.tgz#29c35707c2b70e50d07482b5d202e8ed446dafd4"
 
+todomvc-app-css@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/todomvc-app-css/-/todomvc-app-css-2.0.6.tgz#0b3667c5e189f1568d9a9bf7947ebd928406961d"
+
 ts-loader@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-1.2.2.tgz#b4445a621e688e25db8c75afe6b7ccb635014e5c"

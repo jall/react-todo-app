@@ -1,15 +1,21 @@
 import * as React from "react";
 
+import Todo from "../Model/Todo";
+
 export interface SummaryProps {
-    count: number;
+    todos: Todo[];
 }
 
 export default class Summary extends React.Component<SummaryProps, any> {
     render() {
         return (
-            <div className="summary">
-                <span className="todo-count">{this.props.count} things to do!</span>
-            </div>
+            <span className="todo-count">
+                <strong>{this.countIncompleteTodos()}</strong> items left
+            </span>
         );
+    }
+
+    countIncompleteTodos() {
+        return this.props.todos.filter((todo: Todo) => !todo.done).length;
     }
 }

@@ -23,16 +23,24 @@ export default class Todos extends React.Component<any, TodosState> {
         };
 
         this.addTodo = this.addTodo.bind(this);
+        this.updateTodo = this.updateTodo.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
     }
 
     render() {
         return (
-            <div className="todos">
-                <AddItem addTodo={this.addTodo}/>
-                <List todos={this.state.todos} removeTodo={this.removeTodo} />
-                <Summary count={this.state.todos.length}/>
-            </div>
+            <section className="todoapp">
+                <header className="header">
+                    <h1>todos</h1>
+                    <AddItem addTodo={this.addTodo}/>
+                </header>
+                <section className="main">
+                    <List todos={this.state.todos} updateTodo={this.updateTodo} removeTodo={this.removeTodo} />
+                </section>
+                <footer className="footer">
+                    <Summary todos={this.state.todos}/>
+                </footer>
+            </section>
         );
     }
 
@@ -51,6 +59,19 @@ export default class Todos extends React.Component<any, TodosState> {
             if (index > -1) {
                 todos.splice(index, 1);
             }
+            return { todos: todos };
+        });
+    }
+
+    updateTodo(todo: Todo) {
+        this.setState((prevState, props) => {
+            let todos = prevState.todos.slice();
+
+            let index = todos.indexOf(todo);
+            if (index > -1) {
+                todos.splice(index, 1, todo);
+            }
+
             return { todos: todos };
         });
     }
