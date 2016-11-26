@@ -85,12 +85,16 @@ export default class Todos extends React.Component<any, TodosState> {
         this.setState({ todos: todos });
     }
 
-    handleCompleteAllChange(event: React.FormEvent<any>) {
-        let isComplete = (event.target as HTMLInputElement).checked;
+    setCompletionForAll(complete = true) {
         let todos = this.state.todos.map((todo: Todo) => {
-            todo.complete = isComplete;
+            todo.complete = complete;
             return todo;
         });
         this.setState({ todos: todos });
+    }
+
+    handleCompleteAllChange(event: React.FormEvent<any>) {
+        let isComplete = (event.target as HTMLInputElement).checked;
+        this.setCompletionForAll(isComplete);
     }
 }
