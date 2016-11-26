@@ -16,6 +16,6 @@ export default class Summary extends React.Component<SummaryProps, any> {
     }
 
     countIncompleteTodos() {
-        return this.props.todos.filter((todo: Todo) => !todo.done).length;
+        return this.props.todos.filter((todo: Todo) => !todo.complete).length;
     }
 }
