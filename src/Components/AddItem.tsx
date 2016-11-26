@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const ENTER_KEY = 13;
+import { ENTER } from "../Constants/KeyboardCodes";
 
 export interface AddItemProps {
     addTodo: (text: string) => void;
@@ -17,7 +17,7 @@ export default class AddItem extends React.Component<any, any> {
     }
 
     onKeyUp(event: React.KeyboardEvent<any>) {
-        if (event.keyCode !== ENTER_KEY) {
+        if (event.keyCode !== ENTER) {
             return;
         }
 
