@@ -4,20 +4,31 @@ import Todo from "../Model/Todo";
 
 export interface SummaryProps {
     todos: Todo[];
+    clearCompletedTodos: () => void;
 }
 
 export default class Summary extends React.Component<SummaryProps, any> {
     render() {
-        let count = this.countIncompleteTodos();
+        let incompleteCount = this.countIncompleteTodos();
+        let completeCount = this.countCompleteTodos();
 
         return (
-            <span className="todo-count">
-                <strong>{count}</strong> {count === 1 ? 'item' : 'items'} left
-            </span>
+            <footer className="footer">
+                <span className="todo-count">
+                    <strong>{incompleteCount}</strong> {incompleteCount === 1 ? 'item' : 'items'} left
+                </span>
+                {completeCount > 0 &&
+                    <button className="clear-completed" onClick={() => this.props.clearCompletedTodos()}>Clear completed</button>
+                }
+            </footer>
         );
     }
 
     countIncompleteTodos() {
         return this.props.todos.filter((todo: Todo) => !todo.complete).length;
+    }
+
+    countCompleteTodos() {
+        return this.props.todos.filter((todo: Todo) => todo.complete).length;
     }
 }
