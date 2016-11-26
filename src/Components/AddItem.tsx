@@ -13,7 +13,7 @@ export default class AddItem extends React.Component<any, any> {
     }
 
     render() {
-        return <input type="text" placeholder="What needs doing?" className="new-todo" onKeyUp={this.onKeyUp} />;
+        return <input type="text" placeholder="What needs doing?" className="new-todo" onKeyUp={this.onKeyUp} autoFocus />;
     }
 
     onKeyUp(event: React.KeyboardEvent<any>) {
