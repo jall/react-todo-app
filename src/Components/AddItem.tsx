@@ -6,8 +6,8 @@ export interface AddItemProps {
     addTodo: (text: string) => void;
 }
 
-export default class AddItem extends React.Component<any, any> {
-    constructor(props: any) {
+export default class AddItem extends React.Component<AddItemProps, any> {
+    constructor(props: AddItemProps) {
         super(props);
         this.onKeyUp = this.onKeyUp.bind(this);
     }
