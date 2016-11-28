@@ -29,7 +29,11 @@ export default class ToggleAllComplete extends React.Component<ToggleAllComplete
     }
 
     isChecked(): boolean {
-        return this.areAllTodosComplete();
+        return this.isEmpty(this.props.todos) && this.areAllTodosComplete();
+    }
+
+    isEmpty(array: Array<any>): boolean {
+        return array.length > 0;
     }
 
     areAllTodosComplete(): boolean {
