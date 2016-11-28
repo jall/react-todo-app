@@ -3,6 +3,7 @@ import * as React from "react";
 import AddItem from "./AddItem";
 import List from "./List";
 import Summary from "./Summary";
+import ToggleAllComplete from "./ToggleAllComplete";
 import Todo from "../Model/Todo";
 import generateUniqueId from "../Utilities/UniqueId";
 
@@ -26,7 +27,7 @@ export default class Todos extends React.Component<any, TodosState> {
         this.updateTodo = this.updateTodo.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
         this.clearCompletedTodos = this.clearCompletedTodos.bind(this);
-        this.handleCompleteAllChange = this.handleCompleteAllChange.bind(this);
+        this.setCompletionForAll = this.setCompletionForAll.bind(this);
     }
 
     render() {
@@ -37,8 +38,7 @@ export default class Todos extends React.Component<any, TodosState> {
                     <AddItem addTodo={this.addTodo}/>
                 </header>
                 <section className="main">
-                    <input className="toggle-all" type="checkbox" onChange={this.handleCompleteAllChange}/>
-    				<label htmlFor="toggle-all">Mark all as complete</label>
+                    <ToggleAllComplete setCompletionForAll={this.setCompletionForAll} todos={this.state.todos}/>
                     <List todos={this.state.todos} updateTodo={this.updateTodo} removeTodo={this.removeTodo} />
                 </section>
                 <Summary todos={this.state.todos} clearCompletedTodos={this.clearCompletedTodos} />
@@ -93,8 +93,4 @@ export default class Todos extends React.Component<any, TodosState> {
         this.setState({ todos: todos });
     }
 
-    handleCompleteAllChange(event: React.FormEvent<any>) {
-        let isComplete = (event.target as HTMLInputElement).checked;
-        this.setCompletionForAll(isComplete);
-    }
 }
